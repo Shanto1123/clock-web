@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin:25px;
+             font-family: 'Justyfay';
+            background-image: url("bg2.jpg");
+             background-size: cover;
+        }
+
+        .clock ,h1 {
+            font-size: 5rem;
+            color:white;
+               font-family: 'Justyfay';
+        }
+         .container {
+            border: 5px solid #343a40; /* Add a border */
+            border-radius: 150%; /* Add border radius for rounded corners */
+            padding: 100px; /* Add some padding */
+            background-color: black; /* Background color */
+            box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center">
+                <h1>Current Time</h1>
+                
+                <div class="clock" id="clock"></div>
+                <h4 style=" font-family:fantasy; color: #343a40;">Design by Shanto</h4>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <h1 style="margin: 10px;">Developed by <b style="background-color: rgb(56, 57, 4); margin: 15px; padding: 10px;"> Sheikh Shanto</b></h1><!-- Replace with the actual developer's name -->
+    </footer>
+
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12; // Convert to 12-hour format
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds} ${ampm}`;
+
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>
